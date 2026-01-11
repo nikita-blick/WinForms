@@ -275,7 +275,7 @@
 			this.MinimizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "Clock PV_521";
-			this.Click += new System.EventHandler(this.ццццццццццццццц);
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.contextMenuStrip.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
