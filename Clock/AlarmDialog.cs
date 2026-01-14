@@ -39,6 +39,12 @@ namespace Clock
 			{
 				labelFilename.Text = fileDialog.FileName;
 			}
+
+		}
+
+		private void clbWeekDays_ItemCheck(object sender, ItemCheckEventArgs e)
+		{
+
 		}
 	}
 }
