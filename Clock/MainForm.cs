@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using Microsoft.Win32;
 using System.Runtime.InteropServices;
+using Microsoft.Win32;
+
 
 namespace Clock
 {
@@ -241,9 +242,9 @@ namespace Clock
 			if((sender as ToolStripMenuItem).Checked) AllocConsole();
 			else FreeConsole();
 		}
-		[DllImport("kerne132.dll")]
+		[DllImport("kernel32.dll")]
 		public static extern void AllocConsole();
-		[DllImport("kerne132.dll")]
+		[DllImport("kernel32.dll")]
 		public static extern void FreeConsole();
 	}
 }

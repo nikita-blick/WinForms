@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clock
 {
-	internal class Alarm
+	public class Alarm
 	{
 		public DateTime Date {  get; set; }
 		public DateTime Time { get; set; }

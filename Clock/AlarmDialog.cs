@@ -13,6 +13,7 @@ namespace Clock
 	public partial class AlarmDialog : Form
 	{
 		OpenFileDialog fileDialog;
+		public Alarm Alarm { get; private set; }
 		public AlarmDialog()
 		{
 			InitializeComponent();
@@ -67,6 +68,11 @@ namespace Clock
 			for (int i = 0; i < clbWeekDays.CheckedIndices.Count; i++)
 				days |= (byte)(1 << clbWeekDays.CheckedIndices[i]);
 			return days; 
+		}
+
+		private void buttonOK_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
