@@ -132,6 +132,12 @@ namespace Clock
 				labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
 			if (
 				alarm != null
+				&&(
+					alarm.Date == DateTime.MaxValue ?
+					alarm.Days.Contains((byte)DateTime.Now.DayOfWeek) :
+					CompareDates(alarm.Date, DateTime.Now)
+					
+				)
 				&& alarm.Time.Hours == DateTime.Now.Hour
 				&& alarm.Time.Minutes == DateTime.Now.Minute
 				&& alarm.Time.Seconds == DateTime.Now.Second
@@ -140,6 +146,10 @@ namespace Clock
 			if (DateTime.Now.Second % 5 == 0) alarm = FindNextAlarm();
 			notifyIcon.Text = labelTime.Text;
 
+		}
+		bool CompareDates(DateTime date1, DateTime date2 )
+		{
+			return date1.Year == date2.Year && date1.Month == date2.Month && date1.Day == date2.Day;
 		}
 		Alarm FindNextAlarm()
 		{
