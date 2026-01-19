@@ -23,6 +23,22 @@ namespace Clock
 				"All sound files (*.mp3;*.flac;*.flacc)|*.mp3;*.flac;*.flacc|mp3 files (*.mp3)|*.mp3|Flac files (*.flac)|*.flac;*.flacc";
 			Alarm = new Alarm();
 		}
+		public AlarmDialog (Alarm alarm):this()
+		{
+			Alarm = alarm;
+			Extract();
+		}
+		void Extract()
+		{
+			if (Alarm.Date != DateTime.MaxValue)
+			{ 
+				dtpDate.Value = Alarm.Date;
+				checkBoxUseDate.Checked = true;
+			}
+			dtpTime.Value = Alarm.Time;
+			Alarm.Days.Extract(clbWeekDays);
+			labelFilename.Text = Alarm.Filename;
+		}
 
 		private void dtpDate_ValueChanged(object sender, EventArgs e)
 		{
