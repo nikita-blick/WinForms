@@ -36,7 +36,8 @@ namespace Clock
 				checkBoxUseDate.Checked = true;
 			}
 			dtpTime.Value = Alarm.Time;
-			Alarm.Days.Extract(clbWeekDays);
+			//if (checkBoxUseDate.Checked) Alarm.Days = new Week(0);
+			//else	Alarm.Days.Extract(clbWeekDays);
 			labelFilename.Text = Alarm.Filename;
 		}
 
@@ -79,7 +80,7 @@ namespace Clock
 			Console.WriteLine($"Days mask:{days}");
 			Console.WriteLine("\n----------------------------------------\n");
 		}
-		byte GetDaysMask()
+		byte GetDaysMask()  // проходит по 86 строке (чек лист боксу) и упаковывает галочки в байт 
 		{
 			byte days = 0;
 			for (int i = 0; i < clbWeekDays.CheckedIndices.Count; i++)
@@ -91,7 +92,7 @@ namespace Clock
 		{
 			Alarm.Date = checkBoxUseDate.Checked ? dtpDate.Value : DateTime.MaxValue;
 			Alarm.Time = dtpDate.Value;
-			Alarm.Days = new Week(GetDaysMask());
+			Alarm.Days = new Week(checkBoxUseDate.Checked ? (byte)0 :GetDaysMask());
 			Alarm.Filename = labelFilename.Text;
 		}
 	}
