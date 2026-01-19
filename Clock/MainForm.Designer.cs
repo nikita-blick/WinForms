@@ -69,7 +69,7 @@
 			this.labelTime.Size = new System.Drawing.Size(224, 42);
 			this.labelTime.TabIndex = 0;
 			this.labelTime.Text = "CurrentTime";
-			this.labelTime.Click += new System.EventHandler(this.labelTime_Click);
+			//this.labelTime.Click += new System.EventHandler(this.labelTime_Click);
 			// 
 			// contextMenuStrip
 			// 

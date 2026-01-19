@@ -48,7 +48,7 @@
 			this.dtpDate.Name = "dtpDate";
 			this.dtpDate.Size = new System.Drawing.Size(160, 31);
 			this.dtpDate.TabIndex = 0;
-			this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
+			//this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
 			// 
 			// dtpTime
 			// 

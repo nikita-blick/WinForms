@@ -20,6 +20,7 @@ namespace Clock
 		ColorDialog foregroundColorDialog;
 		ColorDialog backgroundColorDialog;
 		AlarmsForm alarms;
+		Alarm alarm;
 
 		public MainForm()
 		{
@@ -37,6 +38,7 @@ namespace Clock
 			foregroundColorDialog = new ColorDialog();
 			backgroundColorDialog = new ColorDialog();
 			alarms = new AlarmsForm();
+			alarm = null;
 			LoadSettings();
 			
 
@@ -75,7 +77,7 @@ namespace Clock
 
 			writer.Close();
 
-			System.Diagnostics.Process.Start("notepad", "Settings.ini");
+			//System.Diagnostics.Process.Start("notepad", "Settings.ini");
 		}
 		void LoadSettings()
 		{
@@ -113,10 +115,10 @@ namespace Clock
 		
 		}
 
-		private void labelTime_Click(object sender, EventArgs e)
+		/*private void labelTime_Click(object sender, EventArgs e)
 		{
 
-		}
+		}*/
 		private void timer_Tick(object sender, EventArgs e)
 		{
 			labelTime.Text = DateTime.Now.ToString
@@ -128,9 +130,21 @@ namespace Clock
 				labelTime.Text += $"\n{DateTime.Now.ToString("yyyy.MM.dd")}";
 			if (cbShowWeekday.Checked)
 				labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
-
+			if (
+				alarm != null
+				&& alarm.Time.Hours == DateTime.Now.Hour
+				&& alarm.Time.Minutes == DateTime.Now.Minute
+				&& alarm.Time.Seconds == DateTime.Now.Second
+				)
+				MessageBox.Show(alarm.ToString());
+			if (DateTime.Now.Second % 5 == 0) alarm = FindNextAlarm();
 			notifyIcon.Text = labelTime.Text;
 
+		}
+		Alarm FindNextAlarm()
+		{
+			Alarm[] actualAlarms = alarms.List.Items.Cast<Alarm>().Where(a =>a.Time > DateTime.Now.TimeOfDay).ToArray();
+			return actualAlarms.Min();
 		}
 
 		private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -149,10 +163,10 @@ namespace Clock
 
 		}*/
 
-		private void tToolStripMenuItem_Click(object sender, EventArgs e)
+		/*private void tToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 
-		}
+		}*/
 		private void notifyIcon_DoubleClick(object sender, EventArgs e)
 		{
 			if (!TopMost)
@@ -185,10 +199,10 @@ namespace Clock
 
 		private void tsmiQuit_Click(object sender, EventArgs e) => this.Close();
 
-		private void ццццццццццццццц(object sender, EventArgs e)
+		/*private void ццццццццццццццц(object sender, EventArgs e)
 		{
 
-		}
+		}*/
 
 		private void tsmiForegroundColor_Click(object sender, EventArgs e)
 		{
