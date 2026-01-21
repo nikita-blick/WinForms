@@ -16,6 +16,7 @@ namespace Clock
 		{
 			this.days = days;
 		}
+		public byte GetMask() => days;
 		public /*System.Windows.Forms.CheckedListBox*/ void Extract(System.Windows.Forms.CheckedListBox clb)
 		{
 			if (clb.Items.Count != 7) return;
