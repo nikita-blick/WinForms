@@ -20,6 +20,10 @@ namespace Clock
 			this.Days = other.Days;
 			this.Filename = other.Filename;
 		}
+		public int CompareTo(Alarm other)
+		{
+			return this.Time.CompareTo(other.Time);
+		}
 		public override string ToString()
 		{
 			//return $"{Date}, {Time}, {Days.ToString()}, {Filename}";

@@ -48,17 +48,18 @@
 			this.dtpDate.Name = "dtpDate";
 			this.dtpDate.Size = new System.Drawing.Size(160, 31);
 			this.dtpDate.TabIndex = 0;
-			//this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
 			// 
 			// dtpTime
 			// 
 			this.dtpTime.CustomFormat = "HH:mm:ss";
 			this.dtpTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
 			this.dtpTime.Location = new System.Drawing.Point(272, 47);
 			this.dtpTime.Name = "dtpTime";
+			this.dtpTime.ShowUpDown = true;
 			this.dtpTime.Size = new System.Drawing.Size(160, 31);
 			this.dtpTime.TabIndex = 1;
+			this.dtpTime.Value = new System.DateTime(2026, 1, 21, 18, 28, 0, 0);
 			// 
 			// checkBoxUseDate
 			// 
