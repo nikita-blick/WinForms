@@ -287,5 +287,11 @@ namespace Clock
 		public static extern void AllocConsole();
 		[DllImport("kernel32.dll")]
 		public static extern void FreeConsole();
+
+		private void labelTime_DoubleClick(object sender, EventArgs e)
+		{
+			//contextMenuStrip.Show(labelTime, labelTime.Width / 2, labelTime.Height / 2);
+			SetVisibility(tsmiShowControls.Checked = !tsmiShowControls.Checked);
+		}
 	}
 }

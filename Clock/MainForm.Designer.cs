@@ -73,6 +73,7 @@ namespace Clock
 			this.labelTime.Size = new System.Drawing.Size(224, 42);
 			this.labelTime.TabIndex = 0;
 			this.labelTime.Text = "CurrentTime";
+			this.labelTime.DoubleClick += new System.EventHandler(this.labelTime_DoubleClick);
 			// 
 			// contextMenuStrip
 			// 
@@ -275,8 +276,7 @@ namespace Clock
 			this.axWindowsMediaPlayer.Size = new System.Drawing.Size(221, 46);
 			this.axWindowsMediaPlayer.TabIndex = 4;
 			this.axWindowsMediaPlayer.Visible = false;
-			this.axWindowsMediaPlayer.PlayStateChange +=
-				new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.SetPlayerInvisible);
+			this.axWindowsMediaPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.SetPlayerInvisible);
 			// 
 			// MainForm
 			// 
